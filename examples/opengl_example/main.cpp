@@ -8,6 +8,8 @@
 #pragma warning (disable: 4996)		// 'This function or variable may be unsafe': strcpy, strdup, sprintf, vsnprintf, sscanf, fopen
 #endif
 
+#include <stdio.h>
+
 #ifdef __APPLE__
 #define nullptr NULL
 #endif
@@ -215,6 +217,8 @@ void InitGL()
 
 	GLenum err = GL_NO_ERROR;
 	err = glGetError();
+    if(err!=GL_NO_ERROR)
+        printf("glewInit has error %d\n", err);
     //IM_ASSERT(err == GL_NO_ERROR);
 }
 
